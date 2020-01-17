@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="main_container">
+        <header>
+            <h1>Books App</h1>
+            <form action="#" method="get" id="searchForm" class="searchBook">
+                <input type="text" name="searchBooks" id="searchBook" placeholder="Search Books...">
+            </form>
+        </header>
+        <article>
+            <h2>Books to Read</h2>
+            <ul id="bookList">
+                <li>
+                    <p>Name of the Wind</p>
+                    <button class="delete">delete</button>
+                </li>
+                <li>
+                    <p>The Wise Man`s Fear</p>
+                    <button class="delete">delete</button>
+                </li>
+                <li>
+                    <p>Kafka on the Shore</p>
+                    <button class="delete">delete</button>
+                </li>
+                <li>
+                    <p>The Master and the Margarita</p>
+                    <button class="delete">delete</button>
+                </li>
+            </ul>
+        </article>
+        <footer>
+            <div class="searchBookSection">
+            <form action="#" method="get" class="addForm" name="addForm">
+                <input type="text" id="addBook" name="addBook" placeholder="Add a book...">
+                <button class="addButton">Add</button>
+            </form>
+            </div>
+            <form action="#" class="hideBooks">
+                <input type="checkbox" name="hideBooks" id="hideBooks" onclick="check()">
+                <label for="hideBooks">Hide all books</label>
+            </form>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

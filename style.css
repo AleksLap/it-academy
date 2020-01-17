@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrap {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 50px 100px;
+}
+.main_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dedede;
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 3px 1px;
+}
+
+header,
+article,
+footer {
+    width: 100%;
+}
+header {
+    background-color: #dedede;
+    padding-bottom: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.searchBook input {
+    width: 300px;
+    height: 30px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+}
+h1 {
+    padding: 20px;
+    font-size: 36px;
+}
+article {
+    text-align: left;
+    transition: 0.3s;
+
+}
+h2 {
+    margin: 30px 30px 15px 30px;
+    font-size: 28px;
+}
+ul {
+    list-style-type: none;
+    margin: 0 40px;
+    transition: 0.3s;
+    display: block;
+}
+li {
+    margin: 15px 0;
+    height: 50px;
+    border-left: 4px solid #dedede;
+    padding: 15px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.delete {
+    float: right;
+    width: 70px;
+    height: 30px;
+    margin-top: -29px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.delete:hover {
+    background-color: #049604;
+}
+.addForm {
+    margin: 40px;
+}
+.addForm input {
+    width: 300px;
+    height: 30px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #acacac;
+}
+.addButton {
+    width: 70px;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-left: -10px;
+    font-size: 16px;
+    margin-top: -2px;
+    background-color: #049604;
+    color: white;
+    transition: 0.3s;
+}
+.hideBooks {
+    margin-bottom: 40px;
+}
+li:hover {
+    border-left: 4px solid #0607bc;
+}
+.addButton:hover {
+    box-shadow: 0 0 5px 1px green;
+}
