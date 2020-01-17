@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: var(--mycolor);
+        }
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .panel {
+            width: 350px;
+            background-color: #cccccc;
+            padding: 1px 15px 20px 15px;
+            border: 1px solid black;
+            margin-left: 5px;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="panel">
+        <h3>Part 1</h3>
+        <form action="#" id="changeColors">
+            <input type="text" id="inputColor" placeholder="Type color here...">
+            <input type="button" value="Change Color" id="changeButton" onclick="changeColor()">
+        </form>
+    </div>
+
+    <div class="panel">
+        <h3>Part 2</h3>
+        <select class="mySelect">
+            <option>red</option>
+            <option>blue</option>
+            <option>green</option>
+        </select>
+        <button onclick="changeFromSelect()">Change</button>
+    </div>
+
+    <div class="panel">
+    <h3>Part 3</h3>
+    <select class="mySelect2">
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+    </select>
+    <button onclick="changeWithClass()">Change</button>
+    </div>
+
+    <div class="panel">
+    <h3>Part 4</h3>
+    <form action="#">
+        <input type="color" id="takeFromTypeColor" placeholder="Type color here...">
+        <input type="button" value="Change Color" id="changeButton2" onclick="changeWithInputColor()">
+    </form>
+    </div>
+
+    <div class="panel">
+        <h3>Part 3</h3>
+        <select onchange="dontKnowHowToCallYou(this)">
+            <option value="No Value">Choose your color</option>
+            <option>red</option>
+            <option>blue</option>
+            <option>green</option>
+        </select>
+    </div>
+
+</div>
+<script type="text/javascript" src="domExtraJS.js"></script>
+</body>
+</html>
