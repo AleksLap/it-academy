@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table td {
+            width: 28px;
+            height: 28px;
+            border: 1px solid black;
+        }
+        div {
+            margin: 0 auto;
+            width: 250px;
+        }
+        button {
+            margin: 10px auto;
+        }
+        .active{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrap">
+       <div id="container"></div>
+       <button id="changeButton">Change color</button>
+   </div>
+<script type="text/javascript">
+	'use strict';
+
+	let elem = document.querySelector('#container');
+
+	function createTable(parent, cols, rows) {
+		let table = document.createElement('table');
+
+		for (let i = 0; i < rows; i++) {
+			let tr = document.createElement('tr');
+
+			for (let j = 0; j < cols; j++) {
+				let td = document.createElement('td');
+				tr.appendChild(td);
+			}
+
+			table.appendChild(tr);
+		}
+		parent.appendChild(table);
+	}
+	createTable(elem, 8, 8);
+
+	let tableElem = document.querySelector('table');
+	tableElem.addEventListener('mousedown', function (event) {
+		let element = event.target;
+		if(element.className === '') {
+			element.className = 'active';
+		}
+		else {
+			element.className = '';
+		}
+	});
+
+	let button = document.getElementById('changeButton');
+	button.addEventListener('click', function () {
+		let table = document.querySelector('table');
+		if(table.className === '') {
+			table.className = 'active';
+		}
+		else {
+			table.className = '';
+		}
+	});
+
+</script>
+</body>
+</html>
