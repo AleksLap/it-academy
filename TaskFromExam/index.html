@@ -51,26 +51,38 @@
 	}
 	createTable(elem, 8, 8);
 
+
+    let color = 'black';
 	let tableElem = document.querySelector('table');
 	tableElem.addEventListener('mousedown', function (event) {
-		let element = event.target;
-		if(element.className === '') {
-			element.className = 'active';
+        let element = event.target;
+
+		if(element.style.backgroundColor === '') {
+			element.style.backgroundColor = color;
 		}
 		else {
-			element.className = '';
+			element.style.backgroundColor = '';
 		}
 	});
 
 	let button = document.getElementById('changeButton');
 	button.addEventListener('click', function () {
 		let table = document.querySelector('table');
+		let tdElements = document.querySelectorAll('td');
 		if(table.className === '') {
 			table.className = 'active';
+			color = 'white';
 		}
 		else {
 			table.className = '';
+			color = 'black';
 		}
+		for (let i = 0; i < tdElements.length; i++){
+			let elem = tdElements[i];
+			if(elem.style.backgroundColor !== ''){
+				elem.style.backgroundColor = color;
+            }
+        }
 	});
 
 </script>
