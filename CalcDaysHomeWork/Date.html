@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CalcDays</title>
+    <style>
+        h2{
+            font-size: 20px;
+        }
+        input {
+            padding: 5px;
+        }
+        span {
+            border: 1px solid black;
+            padding: 5px;
+            width: 50px;
+            height: 20px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>Write your birthday date in format YYYY-MM-DD:</h2>
+    <input type="text" id="getDate" placeholder="1991-05-05">
+    <h2>Days left until birthday:</h2>
+    <span id="showDays"></span>
+</div>
+<script>
+'use strict';
+
+ let getDate = document.getElementById('getDate');
+ let showDays = document.getElementById('showDays');
+
+getDate.addEventListener('focusout', function () {
+	let birthdayValue = new Date(Date.parse(getDate.value));
+	let today = new Date();
+	birthdayValue.setFullYear(today.getFullYear());
+	showDays.innerHTML = Math.floor((birthdayValue - today)/1000/3600/24).toString();
+});
+</script>
+</body>
+</html>
