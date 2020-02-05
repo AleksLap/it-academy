@@ -9,14 +9,17 @@ htmlElements.clock = document.querySelector('.container .links .clock');
 htmlElements.stopwatch = document.querySelector('.container .links .stopwatch');
 htmlElements.timer = document.querySelector('.container .links .timer');
 htmlElements.output = document.querySelector('.container .output');
+htmlElements.links = document.querySelector('div.links');
+htmlElements.buttons = document.querySelector('div.buttons');
 
 // show clock
 
 function onIntervalNextTick() {
-    const time = new Date();
-    const hours = time.getHours();
+    let time = new Date();
+    let hours = time.getHours();
     let minutes = time.getMinutes();
     let seconds = time.getSeconds();
+    hours = checkTime(hours);
     minutes = checkTime(minutes);
     seconds = checkTime(seconds);
     htmlElements.output.innerHTML = hours + ':' + minutes + ':' + seconds;
@@ -31,17 +34,26 @@ function checkTime(i) {
 
 // add events on links
 
-htmlElements.clock.parentElement.addEventListener('click', function (event) {
-    let links = event.target.parentElement.children;
+htmlElements.links.addEventListener('click', function (event) {
+    event.preventDefault();
+    let links = htmlElements.links.children;
+    let linkDataset = event.target.dataset.mode;
+
     for(let i = 0; i < links.length; i++){
         let elem = links[i];
         elem.className = elem.dataset.mode;
     }
 
     event.target.className += ' selected';
-    showButtons(event.target.dataset.mode);
-    if(event.target.dataset.mode === 'stopwatch'){
+    showButtons(linkDataset);
+
+    if(linkDataset === 'stopwatch'){
         stopWatch();
+    }
+    if(linkDataset === 'clock'){
+       clock = setInterval(onIntervalNextTick, 1000);
+       clearInterval(interval);
+       resetTime();
     }
 
 });
@@ -49,7 +61,7 @@ htmlElements.clock.parentElement.addEventListener('click', function (event) {
 // show buttons
 
 function showButtons(button) {
-    let buttons = htmlElements.startBtn.parentElement.children;
+    let buttons = htmlElements.buttons.children;
     if(button === 'stopwatch'){
         for(let i = 0; i < buttons.length; i++){
             buttons[i].className = buttons[i].className.split(' ', 1).toString();
@@ -64,44 +76,54 @@ function showButtons(button) {
 
 // Stopwatch
 
+let hou = 0;
+let min = 0;
+let sec = 0;
+
 function stopWatch(){
     clearInterval(clock);
     htmlElements.output.innerHTML = '00:00:00';
-    let buttons = htmlElements.startBtn.parentElement;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
+}
 
-    buttons.addEventListener('click', function (event) {
-        let targetName = event.target.className;
-        if(targetName === 'start'){
-            function startTime() {
+htmlElements.buttons.addEventListener('click', function (event) {
+    let targetName = event.target.className;
 
-                seconds++;
+    if(targetName === 'start'){
+        interval = setInterval(startTime, 1000);
+    }
+    if(targetName === 'stop'){
+        stopTime()
+    }
+    if(targetName === 'reset'){
+        resetTime();
+    }
+});
 
-                if(seconds / 60 === 1){
-                    seconds = 0;
-                    minutes++;
 
-                    if(minutes / 60 === 1){
-                        minutes = 0;
-                        hours++;
-                    }
-                }
+function startTime() {
+    sec++;
 
-                htmlElements.output.innerHTML = checkTime(hours) + ':' + checkTime(minutes) + ':' + checkTime(seconds);
-            }
+    if(sec / 60 === 1){
+        sec = 0;
+        min++;
 
-           interval = setInterval(startTime, 1000);
+        if(min / 60 === 1){
+            min = 0;
+            hou++;
         }
-        if(targetName === 'stop'){
-            clearInterval(interval);
-        }
-        if(targetName === 'reset'){
-            hours = 0;
-            minutes = 0;
-            seconds = 0;
-            htmlElements.output.innerHTML = '00:00:00';
-        }
-    })
+    }
+
+    htmlElements.output.innerHTML = checkTime(hou) + ':' + checkTime(min) + ':' + checkTime(sec);
+}
+
+ function stopTime(){
+    clearInterval(interval);
+}
+
+ function resetTime() {
+    hou = 0;
+    min = 0;
+    sec = 0;
+    htmlElements.output.innerHTML = '00:00:00';
+    stopTime();
 }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        div {
+            width: 230px;
+            margin: 0 auto;
+            border: 1px solid #bababa;
+            padding: 10px;
+
+        }
+        form {
+            width: 200px;
+            margin: 0 auto;
+
+        }
+        input {
+            width: 200px;
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px;
+        }
+        .alert {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="">
+        <label for="login">Enter e-mail:</label>
+        <input type="text" id="login" placeholder="Enter your e-mail...">
+        <label for="password">Enter password:</label>
+        <input type="text" id="password" placeholder="Enter your password...">
+        <button id="enter">Log In</button>
+    </form>
+</div>
+<script>
+    'use strict';
+
+    let htmlElements = {};
+    htmlElements.login = document.getElementById('login');
+    htmlElements.password = document.getElementById('password');
+    htmlElements.button = document.getElementById('enter');
+
+    // Проверка на: 1ый символ не цифра, наличие @, наличие точки
+
+    function checkLogin(){
+		let regexp = /^\D\w+[@]\w+[.]\w+/g;
+		let login =  htmlElements.login.value;
+		let result = login.match(regexp);
+
+		return result !== null;
+    }
+
+    // Проверка на большие-маленкие буквы, цифры, нижнее подчеркивание
+
+    function checkPassword() {
+        let regexp = /\W/g;
+        let pass = htmlElements.password.value;
+        let result = pass.match(regexp);
+        
+        return result == null;
+	}
+
+	// Красный бордер и алерт при не соответствии
+
+	htmlElements.button.addEventListener('click', function (event) {
+		event.preventDefault();
+
+		if(!checkLogin()){
+			htmlElements.login.className = 'alert';
+			alert('Enter correct e-mail !');
+        }
+		else {
+			htmlElements.login.className = '';
+        }
+
+		if(!checkPassword()){
+			htmlElements.password.className = 'alert';
+			alert('Enter correct password !');
+        }
+		else {
+			htmlElements.password.className = '';
+        }
+	});
+
+</script>
+</body>
+</html>
