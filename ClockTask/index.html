@@ -14,13 +14,27 @@
         <a data-mode="stopwatch" class="stopwatch" href="#">stopwatch</a>
         <a data-mode="timer" class="timer" href="#">timer</a>
       </div>
-      <div class="output"></div>
-      <div class="buttons">
-        <button class="start hidden">Start</button>
-        <button class="stop hidden">Stop</button>
-        <button class="reset hidden">Reset</button>
+
+      <div class="tabs">
+        <div data-mode="clock" class="clockContainer">
+          <span class="output"></span>
+        </div>
+        <div data-mode="stopwatch" class="stopwatchContainer hidden">
+          <span class="output"></span>
+          <div class="buttons">
+            <button data-mode="start" class="start">Start</button>
+            <button data-mode="stop" class="stop">Stop</button>
+            <button data-mode="reset" class="reset">Reset</button>
+          </div>
+        </div>
+        <div data-mode="timer" class="timerContainer hidden">
+          <span class="output"></span>
+        </div>
       </div>
+
     </div>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="tabs.js"></script>
+    <script type="module" src="clock.js"></script>
   </body>
 </html>
