@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    function Car() {}
+
+    function Vehicle() {}
+
+    Car.prototype = Object.create(Vehicle.prototype);
+
+    Car.prototype.constructor = Car;
+
+    function Honda() {}
+
+    Honda.prototype = Object.create(Car.prototype);
+
+    Honda.prototype.constructor = Honda;
+
+    const honda = new Honda();
+
+    console.log(honda);
+</script>
+</body>
+</html>
