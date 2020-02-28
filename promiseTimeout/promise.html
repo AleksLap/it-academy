@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	function delay(ms) {
+		return new Promise(resolve => {
+			setTimeout(() => resolve(ms), ms);
+		});
+	}
+	delay(1000).then(alert);
+</script>
+</body>
+</html>
