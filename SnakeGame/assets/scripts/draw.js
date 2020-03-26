@@ -69,7 +69,6 @@ function startGame() {
             snake.context.fillStyle = "darkslateblue";
             snake.context.strokeStyle = "black";
             snake.context.fillText(i, 350, 350);
-            console.log(i);
             setTimeout(tick, 1000);
         } else {
             clearCanvas();
@@ -77,7 +76,6 @@ function startGame() {
                 changingDirection = false;
                 drawCanvas();
             }, gameSpeed);
-            console.log(game);
         }
     }, 1000);
 }
