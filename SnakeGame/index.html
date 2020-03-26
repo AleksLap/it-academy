@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="container">
-
-    <div class="game">
-        <canvas id="canvas"></canvas>
+<div class="main_container">
+    <div class="canvas_container">
+        <canvas id="canvas" width="720" height="720"></canvas>
     </div>
-
-    <div class="info">
-        <p>Score:
+    <div class="panel_container">
+        <div class="score_container">
+            <span id="bestScore"></span>
             <span id="score"></span>
-        </p>
+        </div>
+        <div class="buttons_container">
+            <button id="startGame">Start game</button>
+            <button id="reset">Reset</button>
+            <h2 id="h2">Set difficulty</h2>
+            <button class="difficulty selected" data-mode="easy">Easy x 1</button>
+            <button class="difficulty" data-mode="medium">Medium x 2</button>
+            <button class="difficulty" data-mode="hard">Hard x 3</button>
+        </div>
     </div>
-
-
 </div>
-
-<script type="module" src="main.js"></script>
-<script type="module" src="canvas.js"></script>
-<!--<script type="module" src="html.js"></script>-->
-
+<script defer type="module" src="./assets/scripts/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.main_container {
+    margin: 20px auto;
+    display: flex;
+    height: 730px;
+    width: 1000px;
+    padding: 5px;
+    background-color: darkgreen;
+    box-shadow: 0 0 10px 5px #08f80c;
+}
+
+.canvas_container {
+    background-image: url("../images/field.png");
+}
+
+.panel_container {
+    width: 100%;
+}
+
+span {
+    display: block;
+    margin: 10px auto 20px auto;
+    padding-left: 20px;
+    color: aliceblue;
+    font-size: 36px;
+}
+
+button {
+    width: 160px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 20px;
+    margin: 40px auto;
+    display: block;
+}
+
+.selected {
+    box-shadow: 0 0 10px 5px #08f80c;
+}
+
+#h2 {
+    color: aliceblue;
+    padding-left: 40px;
+    font-size: 36px;
+}
+
